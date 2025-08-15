@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: smarttodo
+      POSTGRES_USER: smarttodo
+      POSTGRES_PASSWORD: smarttodo
+    ports: ["5432:5432"]
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+volumes:
+  dbdata:

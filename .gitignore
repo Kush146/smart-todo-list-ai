@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+.venv/
+.env
+media/
+
+# Node
+node_modules/
+.next/
+out/
+.env.local
+
+# OS
+.DS_Store
+
+# Python coverage/pytest
+.coverage
+.pytest_cache/
