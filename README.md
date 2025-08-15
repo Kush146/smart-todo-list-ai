@@ -1,32 +1,46 @@
 # Smart Todo List with AI (Django REST + Next.js)
 
-This is a full-stack starter for the assignment:
-- **Backend:** Django/DRF + PostgreSQL + pluggable AI (OpenAI/Claude/LM Studio) with heuristic fallback.
-- **Frontend:** Next.js (App Router) + Tailwind. Simple UI with Ask AI button.
+# Smart Todo List with AI
 
-## Quickstart
-1. `docker compose up -d` (starts Postgres)
-2. Backend:
+## Overview
+This is a Smart Todo List application with AI features like task prioritization, deadline suggestions, and context-aware recommendations. The system uses daily context from messages, emails, and notes to provide intelligent task management suggestions.
+
+## Setup Instructions
+
+### Frontend (Next.js)
+1. Navigate to the `frontend` directory:
    ```bash
-   cd backend
-   python -m venv .venv && source .venv/bin/activate
-   pip install -r requirements.txt
-   cp .env.example .env
-   python manage.py migrate
-   python manage.py runserver
+   cd frontend
    ```
-3. Frontend:
+2. Install dependencies:
    ```bash
-   cd ../frontend
-   npm i
-   cp .env.local.example .env.local
+   npm install
+   ```
+3. Run the Next.js app:
+   ```bash
    npm run dev
    ```
 
-Open http://localhost:3000
+### Backend (Django)
+1. Navigate to the `backend` directory:
+   ```bash
+   cd backend
+   ```
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Run the Django server:
+   ```bash
+   python manage.py runserver
+   ```
 
-API docs: http://127.0.0.1:8000/api/docs/
+## API Documentation
+- **GET /api/tasks/**: Fetch all tasks
+- **POST /api/tasks/**: Create a new task
+- **GET /api/categories/**: Get task categories
+- **POST /api/ai/suggest/**: Get AI suggestions for tasks
 
-## AI
-- Set `AI_PROVIDER` to `none` (default), `lmstudio`, `openai`, or `anthropic` in `backend/.env`.
-- For LM Studio: run the OpenAI-compatible server on `http://localhost:1234/v1` and set `OPENAI_*` vars accordingly.
+## Sample Tasks & AI Suggestions
+Example task: "Complete project proposal"
+AI suggestions: Prioritize as high, Deadline suggestions: August 20, 2025, 5:00 PM, etc.
